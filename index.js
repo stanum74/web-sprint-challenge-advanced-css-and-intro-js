@@ -220,7 +220,7 @@ console.log(artists[2].bio);
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 artists[8].name="Vincent Van Gogh";
-
+console.log(artists[8].name);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
  Use getArtistByIndex to do the following:
@@ -230,8 +230,8 @@ artists[8].name="Vincent Van Gogh";
  
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(arr,i) {
-  return 'the artist at index ${i} is ${arr[i]name}'
+ function getArtistByIndex(array,index) {
+  return `the artist at index ${index} is ${array[index].name}`
 }  
 
 
@@ -246,16 +246,16 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
 
 function get20s(array) {
-  twenties = []
-  for (i = 0; i < array.length; i++) {
-      if (array[i].years.substring(0, 4) >= 1900 && array[i].years.slice(-4) <= 2000) {
-          twenties.push(array[i].name);
-      }
+  let in20s = [];
+  for (let i = 0; i < array.length; i++) {
+    let year = array[i].years.split(" - ");
+    if (year[0] > 1900 && year[1] < 2000) {
+      in20s.push(artists[i].name);
+    }
   }
-  return twenties;
-  console.log(twenties);
+  return in20s; 
 }
-
+get20s(artists);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -288,20 +288,17 @@ Use addArtist to do the following:
 3. Return the resulting array
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
-
-function addArtist(arr){
-    arr.push({
-      id:29
-      name:"Stanley Wong",
-      years:"1991 - 22",
-      genre: "Web Design",
-      nationality: "asian",
-      bio:"My hero is Kobe Bryant."
-    } );
-    return arr;
-  }
-
-  
+function addArtist(array){
+  array.push({ 
+    id: 20,
+    name: "Your Name Here", 
+    years: "Your Birth Year - current day",
+    genre: "Web Design", 
+    nationality: "Your Nationality Here",
+    bio: "Add 1-2 sentences (or use lorem ipsum)"
+  })  
+  return array;
+}
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
@@ -310,17 +307,15 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(artists){
-  let paintALL =[];
-  for(let i =0; i <artists.length; i++){
-    if(arists[i].paintings>100){
-      paintALL.push(artists[i].name);
-    }
+function lotsOfArt(artists) {
+  let paintAll = [];
+  for (let i = 0; i < artists.length; i++) {
+    if (artists[i].paintings > 100) {
+      paintAll.push(artists[i].name);
+    } 
   }
-  return paintALL;
+  return paintAll;
 }
-
-
 
 
 // 🎨🎨 STRETCH 🎨🎨//
